@@ -1,4 +1,5 @@
 ﻿using FuzzyString;
+using FuzzyString.Enums;
 using FuzzyStringUI.Models;
 using System;
 using System.Collections.Generic;
@@ -40,23 +41,9 @@ namespace FuzzyStringUI
             };
         }
 
+        private double tolare = 0;
         private void SearchText()
         {
-            double tolare = 0;
-            if (number < 10)
-            {
-                tolare = ((double)number / 10);
-            }
-            else if (number >= 10 && number < 100)
-            {
-                tolare = ((double)number / 100);
-            }
-            else if (number > 100 && number <= 999)
-            {
-                tolare = ((double)number / 1000);
-            }
-            if (TxtTolarance == null) return;
-            TxtTolarance.Text = tolare.ToString();
 
             if (TxtSearch.Text.Length == 0)
             {
@@ -80,19 +67,23 @@ namespace FuzzyStringUI
         {
             SearchText();
         }
-
-        private void BtnUpValue_Click(object sender, RoutedEventArgs e)
+        private void tolaranceSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            number++;
-            TxtValue.Text = number.ToString();
+            tolare = (tolaranceSlider.Value / 1000);
+            TxtTolarance.Text = String.Format("Tolarance: {0:0.###}", (tolaranceSlider.Value/1000));
             SearchText();
         }
 
-        private void BtnDownValue_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            number--;
-            TxtValue.Text = number.ToString();
-            SearchText();
+            if (TxtSearch.Text.Length == 0)
+            {
+                return;
+            }
+            _bindingList.Add(new KeyModel
+            {
+                Text = addKeyTxtBox.Text
+            });
         }
     }
 }

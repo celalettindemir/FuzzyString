@@ -5,20 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FuzzyStringUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="400" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="208*"/>
+            <RowDefinition Height="240*"/>
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="searchText" Height="200" Margin="0,0,0,216"/>
-        <Button Content="Add Key" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,208,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TxtSearch" HorizontalAlignment="Left" Margin="10,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TxtSearch_TextChanged"/>
-        <Button x:Name="BtnUpValue" Content="Up Value" HorizontalAlignment="Left" Margin="169,267,0,0" VerticalAlignment="Top" Click="BtnUpValue_Click" Width="67"/>
-        <TextBlock x:Name="TxtValue" HorizontalAlignment="Left" Margin="169,292,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" TextAlignment="Center" Width="67"/>
-        <Button x:Name="BtnDownValue" Content="Down Value" HorizontalAlignment="Left" Margin="169,314,0,0" VerticalAlignment="Top" Click="BtnDownValue_Click"/>
-        <TextBlock x:Name="TxtTolarance" HorizontalAlignment="Left" Margin="10,353,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <DataGrid x:Name="searchText" Margin="0,0,0,186"/>
+        <Button Content="Add Key" HorizontalAlignment="Left" Margin="143,0,0,141" Height="20" VerticalAlignment="Bottom" Click="Button_Click"/>
+        <TextBox x:Name="addKeyTxtBox" HorizontalAlignment="Left" Margin="10,0,0,142" TextWrapping="Wrap" Text="" Width="120" Height="18" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="TxtSearch" HorizontalAlignment="Left" Margin="77,0,0,109" TextWrapping="Wrap" Text="" Width="114" TextChanged="TxtSearch_TextChanged" Height="18" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="TxtTolarance" HorizontalAlignment="Left" Margin="10,0,0,82" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom"/>
+        <Slider x:Name="tolaranceSlider" Margin="10,293,10,0" VerticalAlignment="Top" SmallChange="1" Maximum="1000" LargeChange="100" ValueChanged="tolaranceSlider_ValueChanged" TickFrequency="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,110" TextWrapping="Wrap" Text="Search Text:" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>
